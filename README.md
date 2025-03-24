@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><strong>OJS Mobile APP - Silvana Espinoza / Miguel Macias></h1>
+  <h1><strong>OJS Mobile APP - Silvana Espinoza / Miguel Macias</h1>
 </div>
 
 <div align="center">
@@ -14,7 +14,12 @@
    <div align="center">
   <h3>Imagen 4</h3>
   <img src="https://github.com/user-attachments/assets/793d5089-19f7-4c90-9c9c-37211075d18c" width="500"/>
-    
+    <div align="center">
+  <h3>Imagen 4</h3>
+  <img src="https://github.com/user-attachments/assets/e3d6a593-e66c-4797-9125-594dd43a3595" width="500"/>
+    <div align="center">
+  <h3>Imagen 4</h3>
+  <img src="https://github.com/user-attachments/assets/5b073680-30c5-4d31-af98-ca4fb5665c8b" width="500"/>  
 </div>!
 
 
