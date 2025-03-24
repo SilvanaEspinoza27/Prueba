@@ -1,7 +1,7 @@
 package com.example.prueba.clases;
 
 public class Volume {
-    private String issueId;
+    private String issue_id;
     private String volume;
     private String number;
     private String year;
@@ -11,8 +11,8 @@ public class Volume {
     private String cover;
 
     // Constructor, getters, and setters
-    public Volume(String issueId, String volume, String number, String year, String datePublished, String title, String doi, String cover) {
-        this.issueId = issueId;
+    public Volume(String issue_id, String volume, String number, String year, String datePublished, String title, String doi, String cover) {
+        this.issue_id = issue_id;
         this.volume = volume;
         this.number = number;
         this.year = year;
@@ -22,8 +22,8 @@ public class Volume {
         this.cover = cover;
     }
 
-    public String getIssueId() {
-        return issueId;
+    public String getIssue_id() {
+        return issue_id;
     }
 
     public String getVolume() {

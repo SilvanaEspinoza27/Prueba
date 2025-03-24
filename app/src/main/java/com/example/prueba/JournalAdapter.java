@@ -33,6 +33,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Journal journal = journalList.get(position);
         holder.textView.setText(journal.getName());
+        holder.textView2.setText(journal.getDescription());
         // Load image using a library like Glide or Picasso
         Glide.with(holder.imageView.getContext())
                 .load(journal.getPortada())
@@ -53,11 +54,13 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView textView;
+        public TextView textView2;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.item_image);
             textView = itemView.findViewById(R.id.item_text);
+            textView2 = itemView.findViewById(R.id.item_text2);
         }
     }
 }
