@@ -1,18 +1,18 @@
 package com.example.prueba.clases;
 
 public class Journal {
-    private String journalId;
+    private String journal_id;
     private String portada;
     private String abbreviation;
     private String description;
     private String name;
 
-    public String getJournalId() {
-        return journalId;
+    public String getJournal_id() {
+        return journal_id;
     }
 
-    public void setJournalId(String journalId) {
-        this.journalId = journalId;
+    public void setJournalId(String journal_id) {
+        this.journal_id = journal_id;
     }
 
     public String getPortada() {

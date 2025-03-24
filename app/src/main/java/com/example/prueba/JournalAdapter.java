@@ -1,5 +1,6 @@
 package com.example.prueba;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,12 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.ViewHold
         Glide.with(holder.imageView.getContext())
                 .load(journal.getPortada())
                 .into(holder.imageView);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), VolumeActivity.class);
+            intent.putExtra("journal_id", journal.getJournal_id());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override
