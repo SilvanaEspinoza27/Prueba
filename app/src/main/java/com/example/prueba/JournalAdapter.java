@@ -1,6 +1,7 @@
 package com.example.prueba;
 
 import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Journal journal = journalList.get(position);
         holder.textView.setText(journal.getName());
-        holder.textView2.setText(journal.getDescription());
+        holder.textView2.setText(Html.fromHtml(journal.getDescription(), Html.FROM_HTML_MODE_LEGACY));
         // Load image using a library like Glide or Picasso
         Glide.with(holder.imageView.getContext())
                 .load(journal.getPortada())

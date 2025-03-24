@@ -43,16 +43,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             authors.append(author.getNombres());
         }
         holder.authorsTextView.setText(authors.toString());
-
+        holder.htmlButton.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(article.getDoi()));
+            v.getContext().startActivity(browserIntent);
+        });
         // Set button click listeners
         for (Galley galley : article.getGaleys()) {
-            holder.htmlButton.setOnClickListener(v -> {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(galley.getUrlViewGalley()));
-                v.getContext().startActivity(browserIntent);
-            });
-
             holder.pdfButton.setOnClickListener(v -> {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(galley.getUrlViewGalley()));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(galley.getUrlViewGalley().replace("view", "download")));
                 v.getContext().startActivity(browserIntent);
             });
         }
