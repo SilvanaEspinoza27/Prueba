@@ -1,7 +1,10 @@
 package com.example.prueba;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,11 +52,29 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         });
         // Set button click listeners
         for (Galley galley : article.getGaleys()) {
-            holder.pdfButton.setOnClickListener(v -> {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(galley.getUrlViewGalley().replace("view", "download")));
-                v.getContext().startActivity(browserIntent);
-            });
+            if (galley.getLabel().equals("PDF")) {
+                holder.pdfButton.setOnClickListener(v -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(galley.getUrlViewGalley()));
+                    v.getContext().startActivity(browserIntent);
+                });
+            }
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            for (Galley galley : article.getGaleys()) {
+                if (galley.getLabel().equals("PDF")) {
+                    String nameArticle = article.getTitle().replace(" ", "_");
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(galley.getUrlViewGalley().replace("view", "download")));
+                    request.setTitle(nameArticle);
+                    request.setDescription("Descargando: " + nameArticle);
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, nameArticle + ".pdf");
+
+                    DownloadManager downloadManager = (DownloadManager) v.getContext().getSystemService(Context.DOWNLOAD_SERVICE);
+                    downloadManager.enqueue(request);
+                }
+            }
+        });
     }
 
     @Override
